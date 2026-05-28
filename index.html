@@ -1,0 +1,1336 @@
+```html
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Black Diamond Estética Automotiva</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+--bg:#03050a;
+--bg2:#07101f;
+--bg3:#0b172b;
+--navy:#091a33;
+--blue:#1d4ed8;
+--blue2:#4ea1ff;
+--silver:#dfe7f3;
+--white:#ffffff;
+--gray:#9ba6b7;
+--border:rgba(255,255,255,.08);
+--glass:rgba(255,255,255,.04);
+--radius:30px;
+--shadow:0 25px 60px rgba(0,0,0,.55);
+--transition:.4s ease;
+}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Montserrat',sans-serif;
+scroll-behavior:smooth;
+cursor:none;
+}
+
+body{
+background:linear-gradient(180deg,#02040a,#07101f,#02040a);
+color:var(--white);
+overflow-x:hidden;
+}
+
+body::before{
+content:'';
+position:fixed;
+inset:0;
+background:
+radial-gradient(circle at top right, rgba(78,161,255,.10), transparent 30%),
+radial-gradient(circle at bottom left, rgba(29,78,216,.12), transparent 35%);
+pointer-events:none;
+z-index:-1;
+}
+
+.cursor{
+width:18px;
+height:18px;
+border:2px solid white;
+border-radius:50%;
+position:fixed;
+transform:translate(-50%,-50%);
+pointer-events:none;
+z-index:9999;
+transition:transform .12s ease,width .25s ease,height .25s ease,background .25s ease;
+backdrop-filter:blur(5px);
+}
+
+.cursor-grow{
+width:70px;
+height:70px;
+background:rgba(78,161,255,.12);
+border:1px solid rgba(78,161,255,.4);
+}
+
+img{
+max-width:100%;
+display:block;
+}
+
+a{
+text-decoration:none;
+}
+
+.container{
+width:min(1280px,calc(100% - 40px));
+margin:auto;
+}
+
+section{
+padding:120px 0;
+position:relative;
+}
+
+.glass{
+background:var(--glass);
+border:1px solid var(--border);
+backdrop-filter:blur(20px);
+border-radius:var(--radius);
+box-shadow:var(--shadow);
+}
+
+.tag{
+display:inline-flex;
+padding:12px 22px;
+border-radius:999px;
+background:rgba(255,255,255,.05);
+border:1px solid rgba(255,255,255,.08);
+font-size:.78rem;
+letter-spacing:.18em;
+text-transform:uppercase;
+color:#9cc8ff;
+}
+
+.title{
+font-size:clamp(2.7rem,6vw,6.5rem);
+line-height:.92;
+font-weight:900;
+letter-spacing:-.05em;
+}
+
+.gradient{
+background:linear-gradient(135deg,#ffffff,#75b6ff,#1d4ed8);
+-webkit-background-clip:text;
+color:transparent;
+}
+
+.subtitle{
+font-size:1.08rem;
+line-height:1.9;
+color:var(--gray);
+}
+
+.btn{
+position:relative;
+overflow:hidden;
+display:inline-flex;
+align-items:center;
+justify-content:center;
+padding:18px 34px;
+border-radius:999px;
+background:linear-gradient(135deg,#5eb4ff,#1d4ed8);
+color:white;
+font-weight:700;
+transition:var(--transition);
+box-shadow:0 15px 45px rgba(29,78,216,.35);
+border:none;
+}
+
+.btn::before{
+content:'';
+position:absolute;
+top:0;
+left:-120%;
+width:100%;
+height:100%;
+background:linear-gradient(90deg,transparent,rgba(255,255,255,.35),transparent);
+transition:.8s;
+}
+
+.btn:hover::before{
+left:120%;
+}
+
+.btn:hover{
+transform:translateY(-5px) scale(1.02);
+box-shadow:0 20px 60px rgba(29,78,216,.45);
+}
+
+.btn-outline{
+background:transparent;
+border:1px solid rgba(255,255,255,.12);
+}
+
+/* MENU */
+
+.topbar{
+position:fixed;
+top:0;
+width:100%;
+padding:22px 0;
+background:rgba(3,5,10,.55);
+backdrop-filter:blur(18px);
+border-bottom:1px solid rgba(255,255,255,.05);
+z-index:999;
+}
+
+.nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.logo{
+font-size:1.6rem;
+font-weight:900;
+letter-spacing:.08em;
+}
+
+.logo span{
+color:#5eb4ff;
+}
+
+nav{
+display:flex;
+gap:32px;
+}
+
+nav a{
+color:white;
+font-weight:500;
+position:relative;
+transition:.3s;
+}
+
+nav a::after{
+content:'';
+position:absolute;
+left:0;
+bottom:-8px;
+width:0;
+height:2px;
+background:#5eb4ff;
+transition:.3s;
+}
+
+nav a:hover::after{
+width:100%;
+}
+
+nav a:hover{
+color:#5eb4ff;
+}
+
+/* HERO */
+
+.hero{
+min-height:100vh;
+display:flex;
+align-items:center;
+position:relative;
+overflow:hidden;
+}
+
+.hero-bg{
+position:absolute;
+inset:0;
+width:100%;
+height:100%;
+object-fit:cover;
+}
+
+.hero-overlay{
+position:absolute;
+inset:0;
+background:
+linear-gradient(180deg,
+rgba(0,0,0,.35),
+rgba(0,0,0,.7),
+#02040a);
+}
+
+.spotlight{
+position:absolute;
+width:600px;
+height:600px;
+border-radius:50%;
+background:radial-gradient(circle, rgba(78,161,255,.18), transparent 65%);
+filter:blur(40px);
+pointer-events:none;
+transform:translate(-50%,-50%);
+}
+
+.hero-grid{
+position:relative;
+z-index:2;
+display:grid;
+grid-template-columns:1.1fr .9fr;
+gap:40px;
+align-items:center;
+}
+
+.hero-content{
+display:grid;
+gap:28px;
+}
+
+.hero-buttons{
+display:flex;
+gap:18px;
+flex-wrap:wrap;
+}
+
+.hero-card{
+padding:26px;
+transform-style:preserve-3d;
+transition:1s ease;
+}
+
+.hero-card:hover{
+transform:rotateY(6deg) rotateX(4deg);
+}
+
+.hero-card img{
+width:100%;
+height:540px;
+object-fit:cover;
+border-radius:24px;
+transition:1s ease;
+}
+
+.hero-card:hover img{
+transform:scale(1.05);
+}
+
+.stats{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:16px;
+margin-top:10px;
+}
+
+.stat{
+padding:24px;
+text-align:center;
+border-radius:24px;
+background:rgba(255,255,255,.03);
+border:1px solid rgba(255,255,255,.05);
+transition:.35s ease;
+}
+
+.stat:hover{
+transform:translateY(-8px);
+background:rgba(78,161,255,.08);
+}
+
+.stat h3{
+font-size:2rem;
+color:#8cc6ff;
+margin-bottom:8px;
+}
+
+.stat p{
+font-size:.9rem;
+color:var(--gray);
+}
+
+/* BENEFITS */
+
+.section-head{
+text-align:center;
+max-width:900px;
+margin:auto;
+}
+
+.benefits{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:24px;
+margin-top:70px;
+}
+
+.benefit{
+padding:36px;
+position:relative;
+overflow:hidden;
+transition:var(--transition);
+}
+
+.benefit::before{
+content:'';
+position:absolute;
+inset:0;
+background:linear-gradient(135deg,rgba(78,161,255,.14),transparent 60%);
+opacity:0;
+transition:.5s;
+}
+
+.benefit:hover::before{
+opacity:1;
+}
+
+.benefit:hover{
+transform:translateY(-10px);
+}
+
+.benefit-number{
+font-size:4rem;
+font-weight:900;
+color:rgba(255,255,255,.06);
+margin-bottom:14px;
+}
+
+.benefit h3{
+font-size:1.4rem;
+margin-bottom:16px;
+}
+
+.benefit p{
+line-height:1.9;
+color:var(--gray);
+}
+
+/* PARALLAX */
+
+.parallax{
+height:70vh;
+background:url('parallax.jpg') center/cover fixed;
+position:relative;
+border-radius:40px;
+overflow:hidden;
+margin-top:80px;
+}
+
+.parallax::before{
+content:'';
+position:absolute;
+inset:0;
+background:linear-gradient(180deg,rgba(0,0,0,.2),rgba(0,0,0,.7));
+}
+
+.parallax-content{
+position:absolute;
+inset:0;
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+text-align:center;
+padding:20px;
+}
+
+/* GALLERY */
+
+.gallery-scroll{
+overflow:hidden;
+margin-top:80px;
+mask-image:linear-gradient(to right,transparent,black 8%,black 92%,transparent);
+}
+
+.gallery-track{
+display:flex;
+gap:24px;
+width:max-content;
+animation:scroll 40s linear infinite;
+}
+
+.gallery-scroll:hover .gallery-track{
+animation-play-state:paused;
+}
+
+.gallery-item{
+width:380px;
+height:520px;
+overflow:hidden;
+border-radius:34px;
+position:relative;
+flex-shrink:0;
+border:1px solid rgba(255,255,255,.08);
+}
+
+.gallery-item::before{
+content:'';
+position:absolute;
+inset:0;
+background:linear-gradient(180deg,transparent,rgba(0,0,0,.65));
+z-index:2;
+}
+
+.gallery-item img{
+width:100%;
+height:100%;
+object-fit:cover;
+transition:1.2s ease;
+}
+
+.gallery-item:hover img{
+transform:scale(1.12);
+}
+
+.gallery-text{
+position:absolute;
+left:30px;
+bottom:30px;
+z-index:3;
+}
+
+.gallery-text h3{
+font-size:1.7rem;
+margin-bottom:10px;
+}
+
+.gallery-text p{
+color:#d5dce7;
+}
+
+@keyframes scroll{
+0%{transform:translateX(0);}
+100%{transform:translateX(-50%);}
+}
+
+/* PROCESS */
+
+.process-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:24px;
+margin-top:70px;
+}
+
+.process-card{
+padding:34px;
+transition:.4s ease;
+}
+
+.process-card:hover{
+transform:translateY(-8px) scale(1.02);
+background:rgba(78,161,255,.06);
+}
+
+.process-card span{
+font-size:4rem;
+font-weight:900;
+color:rgba(255,255,255,.06);
+}
+
+.process-card h3{
+font-size:1.5rem;
+margin:18px 0;
+}
+
+.process-card p{
+line-height:1.8;
+color:var(--gray);
+}
+
+/* TESTIMONIALS */
+
+.testimonials{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+gap:24px;
+margin-top:70px;
+}
+
+.testimonial{
+padding:34px;
+transition:.4s ease;
+}
+
+.testimonial:hover{
+transform:translateY(-10px);
+}
+
+.stars{
+font-size:1.3rem;
+color:#8cc6ff;
+margin-bottom:20px;
+}
+
+.testimonial p{
+line-height:1.9;
+color:var(--gray);
+margin-bottom:24px;
+}
+
+.client{
+display:flex;
+align-items:center;
+gap:14px;
+}
+
+.client img{
+width:62px;
+height:62px;
+border-radius:50%;
+object-fit:cover;
+}
+
+/* CTA */
+
+.cta-box{
+padding:80px;
+text-align:center;
+position:relative;
+overflow:hidden;
+}
+
+.cta-box::before{
+content:'';
+position:absolute;
+inset:0;
+background:radial-gradient(circle at top, rgba(78,161,255,.18), transparent 50%);
+pointer-events:none;
+}
+
+.cta-box p{
+max-width:700px;
+margin:25px auto;
+line-height:1.9;
+color:var(--gray);
+}
+
+/* CONTACT */
+
+.contact-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:28px;
+margin-top:70px;
+}
+
+.contact-info,
+.contact-form{
+padding:40px;
+}
+
+.contact-item{
+display:flex;
+gap:16px;
+margin-bottom:28px;
+}
+
+.contact-item p{
+line-height:1.8;
+color:var(--gray);
+}
+
+form{
+display:grid;
+gap:18px;
+}
+
+input,
+textarea{
+width:100%;
+padding:18px 20px;
+border-radius:18px;
+background:rgba(255,255,255,.03);
+border:1px solid rgba(255,255,255,.08);
+color:white;
+font-size:1rem;
+transition:.35s ease;
+}
+
+input:focus,
+textarea:focus{
+outline:none;
+border-color:#5eb4ff;
+box-shadow:0 0 25px rgba(78,161,255,.25);
+}
+
+textarea{
+height:180px;
+resize:none;
+}
+
+iframe{
+width:100%;
+height:450px;
+border:none;
+border-radius:34px;
+margin-top:70px;
+}
+
+/* FOOTER */
+
+footer{
+padding:40px 0;
+text-align:center;
+color:rgba(255,255,255,.45);
+border-top:1px solid rgba(255,255,255,.05);
+}
+
+/* WHATS */
+
+.whatsapp{
+position:fixed;
+right:24px;
+bottom:24px;
+width:82px;
+height:82px;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+background:#25D366;
+color:white;
+font-size:2rem;
+box-shadow:0 20px 60px rgba(37,211,102,.4);
+z-index:999;
+transition:.4s ease;
+}
+
+.whatsapp:hover{
+transform:scale(1.1) rotate(8deg);
+}
+
+/* RESPONSIVO */
+
+@media(max-width:980px){
+
+*{
+cursor:auto;
+}
+
+.cursor{
+display:none;
+}
+
+.hero-grid,
+.contact-grid{
+grid-template-columns:1fr;
+}
+
+nav{
+display:none;
+}
+
+.hero{
+padding-top:120px;
+}
+
+.hero-buttons{
+flex-direction:column;
+}
+
+.hero-buttons .btn{
+width:100%;
+}
+
+.hero-card img{
+height:420px;
+}
+
+.stats{
+grid-template-columns:1fr;
+}
+
+.gallery-item{
+width:82vw;
+height:420px;
+}
+
+.cta-box{
+padding:50px 24px;
+}
+
+section{
+padding:90px 0;
+}
+
+}
+
+</style>
+</head>
+<body>
+
+<div class="cursor"></div>
+<div class="spotlight"></div>
+
+<!-- MENU -->
+
+<div class="topbar">
+
+<div class="container nav">
+
+<div class="logo">
+BLACK <span>DIAMOND</span>
+</div>
+
+<nav>
+<a href="#inicio">Início</a>
+<a href="#beneficios">Benefícios</a>
+<a href="#galeria">Galeria</a>
+<a href="#processo">Processo</a>
+<a href="#contato">Contato</a>
+</nav>
+
+</div>
+
+</div>
+
+<!-- HERO -->
+
+<section class="hero" id="inicio">
+
+<img src="hero-bg.jpg" class="hero-bg">
+
+<div class="hero-overlay"></div>
+
+<div class="container hero-grid">
+
+<div class="hero-content">
+
+<div class="tag">
+Vitrificação Automotiva Premium
+</div>
+
+<h1 class="title">
+Seu carro com
+<span class="gradient">brilho cinematográfico</span>
+proteção premium
+& presença absurda.
+</h1>
+
+<p class="subtitle">
+Transforme a aparência do seu veículo com vitrificação automotiva premium.
+Mais brilho, proteção e valorização para BMW, Audi, Mercedes e veículos de alto padrão.
+</p>
+
+<div class="hero-buttons">
+
+<a href="https://wa.me/5584999999999" class="btn magnetic">
+Solicitar orçamento
+</a>
+
+<a href="#galeria" class="btn btn-outline magnetic">
+Ver resultados
+</a>
+
+</div>
+
+<div class="stats">
+
+<div class="stat glass">
+<h3>+500</h3>
+<p>Carros atendidos</p>
+</div>
+
+<div class="stat glass">
+<h3>5★</h3>
+<p>Avaliações premium</p>
+</div>
+
+<div class="stat glass">
+<h3>3 Anos</h3>
+<p>Proteção prolongada</p>
+</div>
+
+</div>
+
+</div>
+
+<div class="glass hero-card">
+<img src="hero-car.jpg">
+</div>
+
+</div>
+
+</section>
+
+<!-- BENEFITS -->
+
+<section id="beneficios">
+
+<div class="container">
+
+<div class="section-head">
+
+<div class="tag">
+Benefícios
+</div>
+
+<br><br>
+
+<h2 class="title">
+Muito além do brilho.
+<span class="gradient">É proteção real.</span>
+</h2>
+
+<br>
+
+<p class="subtitle">
+A vitrificação cria uma camada protetora resistente contra desgaste,
+raios UV, sujeira e agressões externas.
+</p>
+
+</div>
+
+<div class="benefits">
+
+<div class="glass benefit">
+<div class="benefit-number">01</div>
+<h3>Brilho Espelhado</h3>
+<p>
+Acabamento premium com profundidade e reflexos impressionantes.
+</p>
+</div>
+
+<div class="glass benefit">
+<div class="benefit-number">02</div>
+<h3>Proteção UV</h3>
+<p>
+Ajuda a preservar a pintura contra sol e desgaste diário.
+</p>
+</div>
+
+<div class="glass benefit">
+<div class="benefit-number">03</div>
+<h3>Menos Sujeira</h3>
+<p>
+A superfície vitrificada facilita a limpeza e repelência à água.
+</p>
+</div>
+
+<div class="glass benefit">
+<div class="benefit-number">04</div>
+<h3>Valorização</h3>
+<p>
+Seu veículo mantém aparência premium e maior valor visual.
+</p>
+</div>
+
+</div>
+
+<div class="parallax glass">
+
+<div class="parallax-content">
+
+<div class="tag">
+Acabamento Premium
+</div>
+
+<br><br>
+
+<h2 class="title">
+Proteção.
+Elegância.
+<span class="gradient">Presença.</span>
+</h2>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- GALLERY -->
+
+<section id="galeria">
+
+<div class="container">
+
+<div class="section-head">
+
+<div class="tag">
+Galeria Premium
+</div>
+
+<br><br>
+
+<h2 class="title">
+Resultados que impressionam.
+</h2>
+
+</div>
+
+<div class="gallery-scroll">
+
+<div class="gallery-track">
+
+<div class="gallery-item">
+<img src="gallery1.jpg">
+<div class="gallery-text">
+<h3>BMW M4</h3>
+<p>Brilho extremo & acabamento premium.</p>
+</div>
+</div>
+
+<div class="gallery-item">
+<img src="gallery2.jpg">
+<div class="gallery-text">
+<h3>Audi RS6</h3>
+<p>Reflexo intenso e proteção avançada.</p>
+</div>
+</div>
+
+<div class="gallery-item">
+<img src="gallery3.jpg">
+<div class="gallery-text">
+<h3>BMW X6</h3>
+<p>Visual sofisticado e proteção premium.</p>
+</div>
+</div>
+
+<div class="gallery-item">
+<img src="gallery4.jpg">
+<div class="gallery-text">
+<h3>Audi A5</h3>
+<p>Detalhamento de alto padrão.</p>
+</div>
+</div>
+
+<div class="gallery-item">
+<img src="gallery5.jpg">
+<div class="gallery-text">
+<h3>Mercedes AMG</h3>
+<p>Acabamento impecável e duradouro.</p>
+</div>
+</div>
+
+<div class="gallery-item">
+<img src="gallery1.jpg"></div>
+<div class="gallery-item"><img src="gallery2.jpg"></div>
+<div class="gallery-item"><img src="gallery3.jpg"></div>
+<div class="gallery-item"><img src="gallery4.jpg"></div>
+<div class="gallery-item"><img src="gallery5.jpg"></div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- PROCESS -->
+
+<section id="processo">
+
+<div class="container">
+
+<div class="section-head">
+
+<div class="tag">
+Processo Premium
+</div>
+
+<br><br>
+
+<h2 class="title">
+Como realizamos
+<span class="gradient">a vitrificação</span>
+</h2>
+
+</div>
+
+<div class="process-grid">
+
+<div class="glass process-card">
+<span>01</span>
+<h3>Lavagem Técnica</h3>
+<p>
+Remoção profunda de resíduos e sujeiras contaminantes.
+</p>
+</div>
+
+<div class="glass process-card">
+<span>02</span>
+<h3>Descontaminação</h3>
+<p>
+Preparação completa da pintura para máxima aderência.
+</p>
+</div>
+
+<div class="glass process-card">
+<span>03</span>
+<h3>Polimento Técnico</h3>
+<p>
+Correção visual para recuperação do brilho original.
+</p>
+</div>
+
+<div class="glass process-card">
+<span>04</span>
+<h3>Vitrificação</h3>
+<p>
+Aplicação da camada protetora premium de longa duração.
+</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- TESTIMONIALS -->
+
+<section>
+
+<div class="container">
+
+<div class="section-head">
+
+<div class="tag">
+Avaliações
+</div>
+
+<br><br>
+
+<h2 class="title">
+Quem faz,
+<span class="gradient">recomenda.</span>
+</h2>
+
+</div>
+
+<div class="testimonials">
+
+<div class="glass testimonial">
+<div class="stars">★★★★★</div>
+<p>
+“Meu carro ficou absurdo pessoalmente.
+O brilho parece espelho.”
+</p>
+<div class="client">
+<img src="client1.jpg">
+<div>
+<h4>Ricardo Almeida</h4>
+<span>Cliente Premium</span>
+</div>
+</div>
+</div>
+
+<div class="glass testimonial">
+<div class="stars">★★★★★</div>
+<p>
+“Atendimento impecável e acabamento surreal.
+Vale cada centavo.”
+</p>
+<div class="client">
+<img src="client2.jpg">
+<div>
+<h4>João Victor</h4>
+<span>Cliente Premium</span>
+</div>
+</div>
+</div>
+
+<div class="glass testimonial">
+<div class="stars">★★★★★</div>
+<p>
+“A água simplesmente escorre da pintura.
+Resultado muito acima do esperado.”
+</p>
+<div class="client">
+<img src="client3.jpg">
+<div>
+<h4>Carlos Henrique</h4>
+<span>Cliente Premium</span>
+</div>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- CTA -->
+
+<section>
+
+<div class="container">
+
+<div class="glass cta-box">
+
+<div class="tag">
+Agende Agora
+</div>
+
+<br><br>
+
+<h2 class="title">
+Seu carro merece
+<span class="gradient">esse nível de cuidado.</span>
+</h2>
+
+<p>
+Solicite agora um orçamento sem compromisso e transforme a aparência do seu veículo.
+</p>
+
+<a href="https://wa.me/5584999999999" class="btn magnetic">
+Falar no WhatsApp
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- CONTACT -->
+
+<section id="contato">
+
+<div class="container">
+
+<div class="section-head">
+
+<div class="tag">
+Contato
+</div>
+
+<br><br>
+
+<h2 class="title">
+Entre em contato
+<span class="gradient">agora mesmo</span>
+</h2>
+
+</div>
+
+<div class="contact-grid">
+
+<div class="glass contact-info">
+
+<div class="contact-item">
+<div>📍</div>
+<p>
+Av. Exemplo, 123 — Natal/RN
+</p>
+</div>
+
+<div class="contact-item">
+<div>📲</div>
+<p>
+(84) 99999-9999
+</p>
+</div>
+
+<div class="contact-item">
+<div>🕒</div>
+<p>
+Segunda à Sexta — 08h às 18h
+</p>
+</div>
+
+<a href="https://wa.me/5584999999999" class="btn magnetic">
+Atendimento via WhatsApp
+</a>
+
+</div>
+
+<div class="glass contact-form">
+
+<form>
+<input type="text" placeholder="Seu nome">
+<input type="email" placeholder="Seu e-mail">
+<input type="text" placeholder="Seu WhatsApp">
+<textarea placeholder="Conte sobre seu veículo"></textarea>
+<button class="btn magnetic">Solicitar orçamento</button>
+</form>
+
+</div>
+
+</div>
+
+<iframe src="https://www.google.com/maps?q=Natal%20RN&output=embed"></iframe>
+
+</div>
+
+</section>
+
+<footer>
+© 2026 Black Diamond Estética Automotiva — Todos os direitos reservados.
+</footer>
+
+<a href="https://wa.me/5584999999999" class="whatsapp magnetic">
+💬
+</a>
+
+<script>
+
+/* CURSOR */
+
+const cursor = document.querySelector('.cursor');
+
+window.addEventListener('mousemove',(e)=>{
+
+cursor.style.left = e.clientX + 'px';
+cursor.style.top = e.clientY + 'px';
+
+});
+
+const hoverItems = document.querySelectorAll('a, button, .glass, .gallery-item');
+
+hoverItems.forEach(item=>{
+
+item.addEventListener('mouseenter',()=>{
+cursor.classList.add('cursor-grow');
+});
+
+item.addEventListener('mouseleave',()=>{
+cursor.classList.remove('cursor-grow');
+});
+
+});
+
+/* SPOTLIGHT */
+
+const spotlight = document.querySelector('.spotlight');
+
+window.addEventListener('mousemove',(e)=>{
+spotlight.style.left = e.clientX + 'px';
+spotlight.style.top = e.clientY + 'px';
+});
+
+/* REVEAL */
+
+const observer = new IntersectionObserver(entries=>{
+
+entries.forEach(entry=>{
+
+if(entry.isIntersecting){
+entry.target.animate([
+{opacity:0, transform:'translateY(60px)'},
+{opacity:1, transform:'translateY(0)'}
+],{
+duration:900,
+fill:'forwards',
+easing:'ease'
+});
+}
+
+});
+
+},{threshold:.12});
+
+const revealItems = document.querySelectorAll('section, .glass');
+
+revealItems.forEach(item=>{
+observer.observe(item);
+});
+
+</script>
+
+</body>
+</html>
